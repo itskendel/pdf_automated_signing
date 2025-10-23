@@ -9,9 +9,5 @@ Route::get('/', function () {
         ->route('document.index');
 });
 
-Route::post('/pdf_signer', [PdfController::class, 'signDocument'])
-    ->name('pdf_signer');
-
-
 Route::resource('/document', DocumentController::class)
     ->names('document');

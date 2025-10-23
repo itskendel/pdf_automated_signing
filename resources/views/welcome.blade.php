@@ -95,7 +95,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-
             const pdf_inputs = document.querySelectorAll('input[name="pdf_file"]');
             for (const input of pdf_inputs) {
                 const url = input.value;
