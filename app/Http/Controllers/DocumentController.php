@@ -133,9 +133,15 @@ class DocumentController extends Controller
             }
 
             $pdf_content = $pdf->Output('', 'S');
-            $file_name = 'signed/signed_' . time() . '.pdf';
+            $file_name = $path->path;
 
+            Storage::delete($file_name);
             Storage::put($file_name, $pdf_content);
+
+            $path->update([
+                'path' => $file_name,
+            ]);
+
 
             return redirect()
                 ->back();
